@@ -113,14 +113,16 @@ $c-bg: #e3ebf3;
     main {
         min-height: auto;
         .wrapper {
-            @include center(100%, $mq-xxLarge);
+            // @include center(100%, $mq-xxLarge);
             height: 100%;
             .city-search {
                 @include box-shadow;
                 background-color: $c-darkBlue;
-                padding: 2em;
-                label {
-                    display: block;
+                form {
+                    padding: 2em;
+                    label {
+                        display: block;
+                    }
                 }
                 @media (min-width: $mq-medium) {
                     width: 30%;
@@ -130,15 +132,28 @@ $c-bg: #e3ebf3;
                     color: $c-lightBlue;
                     border-color: $c-lightBlue; 
                 }
+                #cityHistory {
+                    a {
+                        display: block;
+                        padding: 1em;
+                        border-top: thin solid $c-lightBlue;
+                        @media (min-width: $mq-medium) {
+                            &:last-child {
+                                border-bottom: thin solid $c-lightBlue;
+                            }
+                        }
+                    }
+                }
             }
             .city-forecast {
                 margin: 2% 0;
                 @media (min-width: $mq-medium) {
                     width: 100%;
-                    margin-left: 2%;
+                    margin: 0 2%;
                 }
                 #currentWeather {
                     color: $c-darkBlue;
+                    padding: 2em 0;
                 }
                 #dailyForecast {
                     background-color: $c-darkBlue;
