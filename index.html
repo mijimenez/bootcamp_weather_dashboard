@@ -24,7 +24,7 @@
                         <div class="input-group mb-3">
                             <input type="text" class="form-control"  id="cityInput" aria-describedby="button-addon2">
                             <div class="input-group-append">
-                                <button class="search-button btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-search-location"></i></button>
+                                <button class="search-button btn btn-outline-secondary" type="submit" id="button-addon2"><i class="fas fa-search-location"></i></button>
                             </div>
                         </div>
                     </fieldset>
@@ -34,42 +34,44 @@
             </div>
             <div class="city-forecast">
                 <div id="currentWeather">
-                    <h2 class="city">City (00/00/0000)</h2><span id="icon"></span>
-                    <p class="temperature">---</p>
-                    <p class="humidity">---</p>
-                    <p class="wind-speed">---</p>
-                    <p class="uv-index">---</p>
+                    <h2 class="name">Results will appear here.</h2>
+                    <h3 class="date"></h3>
+                    <img class="icon" src="">
+                    <p class="temperature"></p>
+                    <p class="humidity"></p>
+                    <p class="wind-speed"></p>
+                    <p class="uv-index"></p>
                 </div>
-                <div id="dailyForecast">
+                <div id="dailyForecast" style="display:none;">
                     <h2>5-Day Forecast:</h2>
-                    <div class="weather-cards d-xl-flex">
-                        <div class="weather-card day1">
+                    <div id="dailyForecastCards" class="weather-cards d-xl-flex">
+                        <div class="weather-card" id="day1">
                             <p class="date">00/00/0000</p>
-                            <p class="icon">---</p>
+                            <img class="icon" src="">
                             <p class="temperature">---</p>
                             <p class="humidity">---</p>
                         </div>
-                        <div class="weather-card day2">
+                        <div class="weather-card" id="day2">
                             <p class="date">00/00/0000</p>
-                            <p class="icon">---</p>
+                            <img class="icon" src="">
                             <p class="temperature">---</p>
                             <p class="humidity">---</p>
                         </div>
-                        <div class="weather-card day3">
+                        <div class="weather-card" id="day3">
                             <p class="date">00/00/0000</p>
-                            <p class="icon">---</p>
+                            <img class="icon" src="">
                             <p class="temperature">---</p>
                             <p class="humidity">---</p>
                         </div>
-                        <div class="weather-card day4">
+                        <div class="weather-card" id="day4">
                             <p class="date">00/00/0000</p>
-                            <p class="icon">---</p>
+                            <img class="icon" src="">
                             <p class="temperature">---</p>
                             <p class="humidity">---</p>
                         </div>
-                        <div class="weather-card day5">
+                        <div class="weather-card" id="day5">
                             <p class="date">00/00/0000</p>
-                            <p class="icon">---</p>
+                            <img class="icon" src="">
                             <p class="temperature">---</p>
                             <p class="humidity">---</p>
                         </div>
@@ -84,6 +86,7 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/moment.min.js"></script>
     <script src="assets/js/script.js"></script>  
 </body>
 </html>

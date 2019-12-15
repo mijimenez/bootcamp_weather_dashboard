@@ -49,7 +49,7 @@ a:hover, a:focus {
 }
 
 body {
-  background-color: #e3ebf3;
+  background-color: #cdd8df;
   height: 100vh;
 }
 
@@ -86,7 +86,7 @@ body main .wrapper .city-search form label {
 
 @media (min-width: 768px) {
   body main .wrapper .city-search {
-    width: 30%;
+    width: 60%;
     max-width: 400px;
   }
 }
@@ -134,7 +134,7 @@ body main .wrapper .city-forecast #dailyForecast {
 body main .wrapper .city-forecast #dailyForecast .weather-card {
   width: 100%;
   margin: .25em;
-  padding: .5em;
+  padding: 2em;
   background-color: #001625;
 }
 

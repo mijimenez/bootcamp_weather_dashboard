@@ -18,7 +18,7 @@ $c-blue: rgb(0, 109, 182);
 $c-darkBlue: rgb(0, 53, 88);
 $c-white: #fff;
 $c-black: #000;
-$c-bg: #e3ebf3;
+$c-bg: #cdd8df;
 
 
 // =================================
@@ -125,7 +125,7 @@ $c-bg: #e3ebf3;
                     }
                 }
                 @media (min-width: $mq-medium) {
-                    width: 30%;
+                    width: 60%;
                     max-width: 400px;
                 }
                 button {
@@ -162,7 +162,7 @@ $c-bg: #e3ebf3;
                     .weather-card {
                         width: 100%;
                         margin: .25em;
-                        padding: .5em;
+                        padding: 2em;
                         background-color: darken($c-darkBlue, 10%);
                     }
                 }
