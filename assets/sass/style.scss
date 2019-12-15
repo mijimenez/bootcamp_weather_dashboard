@@ -1,3 +1,154 @@
-body {
-    background-color: #f9f9f9;
+// =================================
+//	Variables
+// =================================
+//Font Stacks
+$f-font: "Roboto", sans-serif;
+
+
+// Breakpoints
+$mq-xxLarge: 1400px;
+$mq-xLarge: 1200px;
+$mq-large: 992px;
+$mq-medium: 768px;
+$mq-small: 576px;
+
+//Colors
+$c-lightBlue: rgb(174, 223, 255);
+$c-blue: rgb(0, 109, 182);
+$c-darkBlue: rgb(0, 53, 88);
+$c-white: #fff;
+$c-black: #000;
+$c-bg: #f9f9f9;
+
+
+// =================================
+//	Mixins
+// =================================
+@mixin center($width, $max-width) {
+	width: $width;
+	max-width: $max-width;
+	margin-left: auto;
+	margin-right: auto;
 }
+
+
+// =================================
+//	Type
+// =================================
+
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+      text-align: center;
+      color: $c-white;
+      margin: 0;
+      font-family: $f-font;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+    font-weight: normal;
+  }
+  
+  
+  p,
+  ul,
+  ol,
+  blockquote,
+  address {
+    margin: 0 0 1rem 0;
+    font-style: normal;
+  }
+  
+  ul,
+  ol {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  
+    li {
+    }
+  }
+  
+  a {
+      text-decoration: none;
+      color: $c-white;
+      transition: all .5s;
+  
+    &:hover,
+    &:focus {
+      color: $c-white;
+    }
+  }
+  
+  // =================================
+//	Layout
+// =================================
+
+  body {
+    // background-image: url("../img/earth.jpg");
+    background-color: $c-bg;
+    height: 100vh;
+    nav {
+        background-color: $c-darkBlue;
+        padding: .5em;
+        .header {
+            margin: 0;
+        }
+    }
+    main {
+        min-height: auto;
+        .wrapper {
+            @include center(90%, $mq-xxLarge);
+            .city-search {
+                background-color: $c-darkBlue;
+                margin: 2% 0;
+                padding: 2em;
+                label {
+                    display: block;
+                }
+                @media (min-width: $mq-medium) {
+                    width: 30%;
+                    max-width: 400px;
+                }
+            }
+            .city-forecast {
+                margin: 2% 0;
+                @media (min-width: $mq-medium) {
+                    width: 100%;
+                    margin-left: 2%;
+                }
+                #currentWeather {
+                    color: $c-darkBlue;
+                }
+                #dailyForecast {
+                    background-color: $c-darkBlue;
+                    padding: 2em;
+                    .weather-card {
+                        width: 100%;
+                        margin: .25em;
+                        padding: .5em;
+                        background-color: $c-lightBlue;
+                        color: $c-darkBlue;
+                    }
+                }
+            }
+        }
+    }
+    footer {
+        background-color: $c-darkBlue;
+        padding: .5em;
+        p {
+            margin: 0;
+        } 
+    }
+}
+

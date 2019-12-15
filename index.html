@@ -8,11 +8,78 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/7b4d2fea99.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
-<body>
-    
+<body class="d-flex flex-column">
+    <nav>
+        <h3 class="header">Weather Dashboard</h3>
+    </nav>
+    <main class="flex-grow-1 flex-shrink-0">
+        <div class="wrapper d-md-flex">
+            <div class="city-search">
+                <form id="citySearch" method="POST">
+                    <fieldset>
+                        <label for="city-search">Search for a City:</label>
+                        <input type="text" name="city-input" id="cityInput" />
+                        <button type="submit"><i class="fas fa-search-location"></i></button>
+                    </fieldset>
+                </form>
+                <ul id="cityHistory">
+                </ul>
+            </div>
+            <div class="city-forecast">
+                <div id="currentWeather">
+                    <h2 class="city">City (00/00/0000)</h2><span id="icon"></span>
+                    <p class="temperature">---</p>
+                    <p class="humidity">---</p>
+                    <p class="wind-speed">---</p>
+                    <p class="uv-index">---</p>
+                </div>
+                <div id="dailyForecast">
+                    <h2>5-Day Forecast:</h2>
+                    <div class="weather-cards d-xl-flex">
+                        <div class="weather-card day1">
+                            <p class="date">00/00/0000</p>
+                            <p class="icon">---</p>
+                            <p class="temperature">---</p>
+                            <p class="humidity">---</p>
+                        </div>
+                        <div class="weather-card day2">
+                            <p class="date">00/00/0000</p>
+                            <p class="icon">---</p>
+                            <p class="temperature">---</p>
+                            <p class="humidity">---</p>
+                        </div>
+                        <div class="weather-card day3">
+                            <p class="date">00/00/0000</p>
+                            <p class="icon">---</p>
+                            <p class="temperature">---</p>
+                            <p class="humidity">---</p>
+                        </div>
+                        <div class="weather-card day4">
+                            <p class="date">00/00/0000</p>
+                            <p class="icon">---</p>
+                            <p class="temperature">---</p>
+                            <p class="humidity">---</p>
+                        </div>
+                        <div class="weather-card day5">
+                            <p class="date">00/00/0000</p>
+                            <p class="icon">---</p>
+                            <p class="temperature">---</p>
+                            <p class="humidity">---</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2019 Madeline Jimenez</p>
+    </footer>
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/js/script.js"></script>  
 </body>
 </html>

@@ -1,4 +1,129 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+  color: #fff;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+  font-weight: normal;
+}
+
+p,
+ul,
+ol,
+blockquote,
+address {
+  margin: 0 0 1rem 0;
+  font-style: normal;
+}
+
+ul,
+ol {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+}
+
+a:hover, a:focus {
+  color: #fff;
+}
+
 body {
   background-color: #f9f9f9;
+  height: 100vh;
+}
+
+body nav {
+  background-color: #003558;
+  padding: .5em;
+}
+
+body nav .header {
+  margin: 0;
+}
+
+body main {
+  min-height: auto;
+}
+
+body main .wrapper {
+  width: 90%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body main .wrapper .city-search {
+  background-color: #003558;
+  margin: 2% 0;
+  padding: 2em;
+}
+
+body main .wrapper .city-search label {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  body main .wrapper .city-search {
+    width: 30%;
+    max-width: 400px;
+  }
+}
+
+body main .wrapper .city-forecast {
+  margin: 2% 0;
+}
+
+@media (min-width: 768px) {
+  body main .wrapper .city-forecast {
+    width: 100%;
+    margin-left: 2%;
+  }
+}
+
+body main .wrapper .city-forecast #currentWeather {
+  color: #003558;
+}
+
+body main .wrapper .city-forecast #dailyForecast {
+  background-color: #003558;
+  padding: 2em;
+}
+
+body main .wrapper .city-forecast #dailyForecast .weather-card {
+  width: 100%;
+  margin: .25em;
+  padding: .5em;
+  background-color: #aedfff;
+  color: #003558;
+}
+
+body footer {
+  background-color: #003558;
+  padding: .5em;
+}
+
+body footer p {
+  margin: 0;
 }
 /*# sourceMappingURL=style.css.map */
