@@ -21,8 +21,12 @@
                 <form id="citySearch" method="POST">
                     <fieldset>
                         <label for="city-search">Search for a City:</label>
-                        <input type="text" name="city-input" id="cityInput" />
-                        <button type="submit"><i class="fas fa-search-location"></i></button>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-search-location"></i></button>
+                            </div>
+                        </div>
                     </fieldset>
                 </form>
                 <ul id="cityHistory">

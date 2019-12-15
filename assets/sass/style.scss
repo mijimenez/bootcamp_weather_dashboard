@@ -13,12 +13,12 @@ $mq-medium: 768px;
 $mq-small: 576px;
 
 //Colors
-$c-lightBlue: rgb(174, 223, 255);
+$c-lightBlue: rgb(203, 234, 255);
 $c-blue: rgb(0, 109, 182);
 $c-darkBlue: rgb(0, 53, 88);
 $c-white: #fff;
 $c-black: #000;
-$c-bg: #f9f9f9;
+$c-bg: #e3ebf3;
 
 
 // =================================
@@ -29,6 +29,12 @@ $c-bg: #f9f9f9;
 	max-width: $max-width;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+@mixin box-shadow {
+	-webkit-box-shadow: 0px 3px 5px -2px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 3px 5px -2px rgba(0,0,0,0.75);
+	box-shadow: 0px 3px 5px -2px rgba(0,0,0,0.75);
 }
 
 
@@ -42,7 +48,7 @@ $c-bg: #f9f9f9;
   
   body {
       text-align: center;
-      color: $c-white;
+      color: $c-lightBlue;
       margin: 0;
       font-family: $f-font;
   }
@@ -98,7 +104,7 @@ $c-bg: #f9f9f9;
     background-color: $c-bg;
     height: 100vh;
     nav {
-        background-color: $c-darkBlue;
+        background-color: darken($c-darkBlue, 10%);
         padding: .5em;
         .header {
             margin: 0;
@@ -107,10 +113,11 @@ $c-bg: #f9f9f9;
     main {
         min-height: auto;
         .wrapper {
-            @include center(90%, $mq-xxLarge);
+            @include center(100%, $mq-xxLarge);
+            height: 100%;
             .city-search {
+                @include box-shadow;
                 background-color: $c-darkBlue;
-                margin: 2% 0;
                 padding: 2em;
                 label {
                     display: block;
@@ -118,6 +125,10 @@ $c-bg: #f9f9f9;
                 @media (min-width: $mq-medium) {
                     width: 30%;
                     max-width: 400px;
+                }
+                button {
+                    color: $c-lightBlue;
+                    border-color: $c-lightBlue; 
                 }
             }
             .city-forecast {
@@ -131,20 +142,20 @@ $c-bg: #f9f9f9;
                 }
                 #dailyForecast {
                     background-color: $c-darkBlue;
+                    @include box-shadow;
                     padding: 2em;
                     .weather-card {
                         width: 100%;
                         margin: .25em;
                         padding: .5em;
-                        background-color: $c-lightBlue;
-                        color: $c-darkBlue;
+                        background-color: darken($c-darkBlue, 10%);
                     }
                 }
             }
         }
     }
     footer {
-        background-color: $c-darkBlue;
+        background-color: darken($c-darkBlue, 10%);
         padding: .5em;
         p {
             margin: 0;
