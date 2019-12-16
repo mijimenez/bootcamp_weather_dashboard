@@ -53,15 +53,22 @@ function renderCurrentWeather() {
     // Here we run our AJAX call to the OpenWeatherMap API for current forcast.
     $.ajax({
         url: queryURLWeather,
-        method: "GET"
+        method: "GET",
+        // Exit function if user enteres invalid city name which produces a URL that returns a 404 page?
+        error: function() {
+            alert("Please enter a valid city name.");
+        }
     })
     // We store all of the retrieved data inside of an object called "response"
     .then(function(response) {
         // console.log(queryURLWeather);
         console.log(response);
-
         // Display current weather results
         $("#currentWeather > .name").text(response.name);
+
+        // Push VALID city name to array!
+        searchedCities.push(response.name);
+
         $("#currentWeather > .date").text(moment().format("dddd, MMMM Do YYYY"));
         $("#currentWeather > .icon").attr("src", "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png");
         $("#currentWeather > .temperature").text("Temperature: " + response.main.temp + String.fromCharCode(176) + "F");
@@ -76,6 +83,10 @@ function renderCurrentWeather() {
 
         // Display UV index
         renderUVindex();
+
+        // Display the initial list of cities
+        renderCities();
+
     });
 };
 
@@ -113,7 +124,7 @@ function renderDailyWeather() {
         method: "GET"
     })
     .then(function(response) {
-        // console.log(response);
+        console.log(response);
 
             // Display 5 day forecast container
             $("#dailyForecast").attr("style", "display:block;");
@@ -155,21 +166,22 @@ $(".search-button").on("click", function(event) {
     cityName = $("#cityInput").val().trim();
 
     // Return from function early if submitted city field is blank
-    //HELP: How do I exit function if user enteres invalid city name which produces a URL that returns a 404 page?
     if (cityName === "") {
         return;
     }
 
-    searchedCities.push(cityName);
-
     // Display today's weather
     renderCurrentWeather();
+
     // Display 5 day forecast
     renderDailyWeather();
-    // Display the initial list of cities
-    renderCities();
+
     // Store searched cities into local storage
     storeSearchedCities();
+
+    // REMOVED: This would push valid and invalid names due to location of code.
+    // searchedCities.push(cityName);
+
 });
 
 
@@ -178,7 +190,8 @@ $("#cityHistory").on("click", function(event) {
 
     $("#cityHistory").empty();
 
-    searchedCities.push(cityName);
+    // REMOVED: This would push twice - not nesessary since we've done that in the renderCurrentWeather() function!
+    // searchedCities.push(cityName);
 
     // Display today's weather
     renderCurrentWeather();
