@@ -23,33 +23,6 @@ $(document).ready(function() {
 });
 
 
-
-// This function handles events where the search button is clicked
-$(".search-button").on("click", function(event) {
-    event.preventDefault();
-
-    cityName = $("#cityInput").val().trim();
-
-    // Return from function early if submitted city field is blank
-    //HELP: How do I exit function if user enteres invalid city name which produces a URL that returns a 404 page?
-    if (cityName === "") {
-        return;
-    }
-
-    searchedCities.push(cityName);
-
-    // Display today's weather
-    renderCurrentWeather();
-    // Display 5 day forecast
-    renderDailyWeather();
-    // Display the initial list of cities
-    renderCities();
-    // Store searched cities into local storage
-    storeSearchedCities();
-});
-
-
-
 function storeSearchedCities() {
     // Stringify and set "searchedCities" key in localStorage to searchedCities array
     localStorage.setItem("searchedCities", JSON.stringify(searchedCities));
@@ -173,6 +146,49 @@ function renderDailyWeather() {
             $("#dailyForecastCards > #day5 .humidity").text("Humidity: " + response.list[32].main.humidity);
     });
 };
+
+
+// This function handles events where the search button is clicked
+$(".search-button").on("click", function(event) {
+    event.preventDefault();
+
+    cityName = $("#cityInput").val().trim();
+
+    // Return from function early if submitted city field is blank
+    //HELP: How do I exit function if user enteres invalid city name which produces a URL that returns a 404 page?
+    if (cityName === "") {
+        return;
+    }
+
+    searchedCities.push(cityName);
+
+    // Display today's weather
+    renderCurrentWeather();
+    // Display 5 day forecast
+    renderDailyWeather();
+    // Display the initial list of cities
+    renderCities();
+    // Store searched cities into local storage
+    storeSearchedCities();
+});
+
+
+$("#cityHistory").on("click", function(event) {
+    cityName = event.target.getAttribute("data-name");
+
+    $("#cityHistory").empty();
+
+    searchedCities.push(cityName);
+
+    // Display today's weather
+    renderCurrentWeather();
+    // Display 5 day forecast
+    renderDailyWeather();
+    // Display the initial list of cities
+    renderCities();
+    // Store searched cities into local storage
+    storeSearchedCities();
+});
 
 
 
