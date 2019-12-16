@@ -97,6 +97,7 @@ body main .wrapper .city-search button {
 }
 
 body main .wrapper .city-search #cityHistory a {
+  text-decoration: none;
   display: block;
   padding: 1em;
   border-top: thin solid #cbeaff;
@@ -106,6 +107,11 @@ body main .wrapper .city-search #cityHistory a {
   body main .wrapper .city-search #cityHistory a:last-child {
     border-bottom: thin solid #cbeaff;
   }
+}
+
+body main .wrapper .city-search #cityHistory a:hover, body main .wrapper .city-search #cityHistory a:focus {
+  background-color: #cbeaff;
+  color: #003558;
 }
 
 body main .wrapper .city-forecast {
@@ -121,7 +127,7 @@ body main .wrapper .city-forecast {
 
 body main .wrapper .city-forecast #currentWeather {
   color: #003558;
-  padding: 2em 0;
+  padding: 2em;
 }
 
 body main .wrapper .city-forecast #dailyForecast {

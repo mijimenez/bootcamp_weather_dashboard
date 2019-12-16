@@ -79,9 +79,6 @@ $c-bg: #cdd8df;
     list-style-type: none;
     padding: 0;
     margin: 0;
-  
-    li {
-    }
   }
   
   a {
@@ -113,7 +110,6 @@ $c-bg: #cdd8df;
     main {
         min-height: auto;
         .wrapper {
-            // @include center(100%, $mq-xxLarge);
             height: 100%;
             .city-search {
                 @include box-shadow;
@@ -134,6 +130,7 @@ $c-bg: #cdd8df;
                 }
                 #cityHistory {
                     a {
+                        text-decoration: none;
                         display: block;
                         padding: 1em;
                         border-top: thin solid $c-lightBlue;
@@ -141,6 +138,10 @@ $c-bg: #cdd8df;
                             &:last-child {
                                 border-bottom: thin solid $c-lightBlue;
                             }
+                        }
+                        &:hover, &:focus {
+                            background-color: $c-lightBlue;
+                            color: $c-darkBlue;
                         }
                     }
                 }
@@ -153,7 +154,7 @@ $c-bg: #cdd8df;
                 }
                 #currentWeather {
                     color: $c-darkBlue;
-                    padding: 2em 0;
+                    padding: 2em;
                 }
                 #dailyForecast {
                     background-color: $c-darkBlue;

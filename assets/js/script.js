@@ -5,6 +5,25 @@ var lat = "";
 var lon = "";
 
 
+$(document).ready(function() {
+    function init() {
+        // Get stored searchedCities from localStorage
+        // Parsing the JSON string to an object
+        var storedSearchedCities = JSON.parse(localStorage.getItem("searchedCities"));
+    
+        // If searchedCities were retrieved from localStorage, update the searchedCities array to it
+        if (storedSearchedCities !== null) {
+            searchedCities = storedSearchedCities;
+        }
+        // Render searchedCities to the DOM
+        renderCities();
+    }
+    // Display searched cities from local storage
+    init();
+});
+
+
+
 // This function handles events where the search button is clicked
 $(".search-button").on("click", function(event) {
     event.preventDefault();
@@ -25,8 +44,16 @@ $(".search-button").on("click", function(event) {
     renderDailyWeather();
     // Display the initial list of cities
     renderCities();
+    // Store searched cities into local storage
+    storeSearchedCities();
 });
 
+
+
+function storeSearchedCities() {
+    // Stringify and set "searchedCities" key in localStorage to searchedCities array
+    localStorage.setItem("searchedCities", JSON.stringify(searchedCities));
+}
 
 
 // Function for displaying searched cities
@@ -146,6 +173,8 @@ function renderDailyWeather() {
             $("#dailyForecastCards > #day5 .humidity").text("Humidity: " + response.list[32].main.humidity);
     });
 };
+
+
 
 
 
