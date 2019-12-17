@@ -37,6 +37,12 @@ $c-bg: #cdd8df;
 	box-shadow: 0px 3px 5px -2px rgba(0,0,0,0.75);
 }
 
+@mixin box-shadow-right {
+    -webkit-box-shadow: 3px 3px 5px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 5px -2px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 5px -2px rgba(0,0,0,0.75);
+}
+
 
 // =================================
 //	Type
@@ -114,6 +120,9 @@ $c-bg: #cdd8df;
             .city-search {
                 @include box-shadow;
                 background-color: $c-darkBlue;
+                @media (min-width: $mq-medium) {
+                    @include box-shadow-right;
+                }
                 form {
                     padding: 2em;
                     label {

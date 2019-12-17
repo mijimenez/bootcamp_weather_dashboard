@@ -31,6 +31,7 @@ function storeSearchedCities() {
 
 // Function for displaying searched cities
 function renderCities() {
+
     // Empty current city list before displaying next city name button
     $("#cityHistory").empty();
 
@@ -41,6 +42,7 @@ function renderCities() {
         newCity.attr('data-name', searchedCities[i]); 
         newCity.attr("href", "#");
         $("#cityHistory").append(newCity);
+        $("#clearHistory").attr("style", "display:block");
     }
 };
 
@@ -199,6 +201,7 @@ $("#clearHistoryBtn").on("click", function() {
     searchedCities = [];
     storeSearchedCities();
     renderCities();
+    $("#clearHistory").attr("style", "display:none");
 });
 
 
