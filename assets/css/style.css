@@ -84,6 +84,27 @@ body main .wrapper .city-search form label {
   display: block;
 }
 
+body main .wrapper .city-search #clearHistory {
+  font-size: .8em;
+  padding: 0 2em 2em;
+  margin: 0;
+  color: #cbeaff;
+}
+
+body main .wrapper .city-search #clearHistory #clearHistoryBtn {
+  border: thin solid #cbeaff;
+  color: #cbeaff;
+  border-radius: 3px;
+  padding: .25em 1em;
+  margin-left: 1em;
+  text-decoration: none;
+}
+
+body main .wrapper .city-search #clearHistory #clearHistoryBtn:hover, body main .wrapper .city-search #clearHistory #clearHistoryBtn:focus {
+  background-color: #cbeaff;
+  color: #003558;
+}
+
 @media (min-width: 768px) {
   body main .wrapper .city-search {
     width: 60%;
@@ -151,5 +172,6 @@ body footer {
 
 body footer p {
   margin: 0;
+  font-size: .875em;
 }
 /*# sourceMappingURL=style.css.map */

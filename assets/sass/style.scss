@@ -120,6 +120,24 @@ $c-bg: #cdd8df;
                         display: block;
                     }
                 }
+                #clearHistory {
+                    font-size: .8em;
+                    padding: 0 2em 2em;
+                    margin: 0;
+                    color: $c-lightBlue;
+                    #clearHistoryBtn {
+                        border: thin solid $c-lightBlue;
+                        color: $c-lightBlue;
+                        border-radius: 3px;
+                        padding: .25em 1em;
+                        margin-left: 1em;
+                        text-decoration: none;
+                        &:hover, &:focus {
+                            background-color: $c-lightBlue;
+                            color: $c-darkBlue;
+                        }
+                    }
+                }
                 @media (min-width: $mq-medium) {
                     width: 60%;
                     max-width: 400px;
@@ -175,6 +193,7 @@ $c-bg: #cdd8df;
         padding: .5em;
         p {
             margin: 0;
+            font-size: .875em;
         } 
     }
 }
