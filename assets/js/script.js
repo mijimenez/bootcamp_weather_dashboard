@@ -65,6 +65,11 @@ function renderCurrentWeather() {
         // console.log(queryURLWeather);
         // console.log(response);
 
+        if (searchedCities.indexOf(cityName) === -1) {
+            searchedCities.push(cityName);
+        }
+  
+
         // Display current weather results
         $("#currentWeather > .name").text(response.name);
         $("#currentWeather > .date").text(moment().format("dddd, MMMM Do YYYY"));
@@ -81,6 +86,15 @@ function renderCurrentWeather() {
 
         // Display UV index
         renderUVindex();
+
+        // Display today's weather
+        // renderCurrentWeather();
+        // Display 5 day forecast
+        renderDailyWeather();
+        // Display the initial list of cities
+        renderCities();
+        // Store searched cities into local storage
+        storeSearchedCities();
     });
 };
 
@@ -165,16 +179,10 @@ $(".search-button").on("click", function(event) {
     }
 
     //HELP: How do I stop pushing entry to array and from displaying on the page IF the user enters invalid city name which produces a URL that returns a 404 page?
-    searchedCities.push(cityName);
-
-    // Display today's weather
+    
     renderCurrentWeather();
-    // Display 5 day forecast
-    renderDailyWeather();
-    // Display the initial list of cities
-    renderCities();
-    // Store searched cities into local storage
-    storeSearchedCities();
+
+
 });
 
 
