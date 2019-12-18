@@ -16,6 +16,9 @@ $(document).ready(function () {
         }
         // Render searchedCities to the DOM
         renderCities();
+
+        // Render last searched city results
+        lastSearchedDisplay();
     }
     // Display searched cities from local storage
     init();
@@ -195,6 +198,12 @@ $("#clearHistoryBtn").on("click", function () {
     $("#clearHistory").attr("style", "display:none");
 });
 
+
+function lastSearchedDisplay() {
+    cityName = $("#cityHistory a:last-child")[0].getAttribute("data-name");
+    renderCurrentWeather();
+    renderDailyWeather();
+}
 
 
 
