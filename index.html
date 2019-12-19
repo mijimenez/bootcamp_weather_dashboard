@@ -20,9 +20,9 @@
             <div class="city-search">
                 <form id="citySearch" method="POST">
                     <fieldset>
-                        <label for="city-search">Search by location:</label>
+                        <label for="city-search">Search by City:</label>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" id="cityInput" placeholder="zipcode/city/state/country" aria-describedby="button-addon2">
+                            <input type="text" class="form-control" id="cityInput" placeholder="ex. Richmond, VA 23226" aria-describedby="button-addon2">
                             <div class="input-group-append">
                                 <button class="search-button btn btn-outline-secondary" type="submit" id="button-addon2"><i class="fas fa-search-location"></i></button>
                             </div>
@@ -44,7 +44,7 @@
                     <p class="uv-index"></p>
                 </div>
                 <div id="dailyForecast" style="display:none;">
-                    <h2>5-Day Forecast</h2>
+                    <h4>5-Day Forecast</h4>
                     <div id="dailyForecastCards" class="weather-cards d-xl-flex">
                         <div class="weather-card" id="day1">
                             <p class="date">00/00/0000</p>
@@ -80,6 +80,7 @@
                 </div>
             </div>
         </div>
+        <a id="backToTop" href="#citySearch"><i class="fas fa-sort-up"></i></a>
     </main>
     <footer>
         <p>&copy; 2019 Madeline Jimenez</p>

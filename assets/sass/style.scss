@@ -131,7 +131,7 @@ $c-bg: #cdd8df;
                 }
                 #clearHistory {
                     font-size: .8em;
-                    padding: 0 2em 2em;
+                    padding: 0 2em 1em;
                     margin: 0;
                     color: $c-lightBlue;
                     #clearHistoryBtn {
@@ -161,6 +161,7 @@ $c-bg: #cdd8df;
                         display: block;
                         padding: 1em;
                         border-top: thin solid $c-lightBlue;
+                        color: $c-lightBlue;
                         @media (min-width: $mq-medium) {
                             &:last-child {
                                 border-bottom: thin solid $c-lightBlue;
@@ -192,8 +193,29 @@ $c-bg: #cdd8df;
                         margin: .25em;
                         padding: 2em;
                         background-color: darken($c-darkBlue, 10%);
+                        .date {
+                            margin: 0;
+                        }
                     }
                 }
+            }
+        }
+        #backToTop {
+            padding: .5em 1em 0 1em;
+            background-color: $c-darkBlue;
+            color: $c-white;
+            @include box-shadow;
+            position: fixed;
+            bottom: 36px;
+            right: 0;
+            opacity: .8;
+            border-radius: 4px 0 0 4px;
+            &:hover, &:focus {
+                background-color: $c-lightBlue;
+                color: $c-darkBlue;
+            }
+            @media (min-width: $mq-xLarge) {
+                display: none;
             }
         }
     }

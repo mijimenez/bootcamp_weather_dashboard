@@ -17,8 +17,10 @@ $(document).ready(function () {
         // Render searchedCities to the DOM
         renderCities();
 
-        // Render last searched city results
-        lastSearchedDisplay();
+        // If a list of searched cities exists, render last searched city results
+        if (Array.isArray(searchedCities) && searchedCities.length) {
+            lastSearchedDisplay();
+        }
     }
     // Display searched cities from local storage
     init();
@@ -81,7 +83,7 @@ function renderCurrentWeather() {
             $("#currentWeather > .date").text(moment().format("dddd, MMMM Do YYYY"));
             $("#currentWeather > .icon").attr("src", "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png");
             $("#currentWeather > .temperature").text("Temperature: " + response.main.temp + String.fromCharCode(176) + "F");
-            $("#currentWeather > .humidity").text("Humidity: " + response.main.humidity);
+            $("#currentWeather > .humidity").text("Humidity: " + response.main.humidity + String.fromCharCode(37));
             $("#currentWeather > .wind-speed").text("Wind Speed: " + response.wind.speed);
 
             // Store longitude and latiture in global variables
@@ -138,30 +140,30 @@ function renderDailyWeather() {
 
             // Display current weather results
             //HELP: How can I loop this and display dynamically?
-            $("#dailyForecastCards > #day1 .date").text(response.list[0].dt_txt);
+            $("#dailyForecastCards > #day1 .date").text(response.list[0].dt_txt.substr(0, 10));
             $("#dailyForecastCards > #day1 .icon").attr("src", "http://openweathermap.org/img/wn/" + response.list[0].weather[0].icon + "@2x.png");
             $("#dailyForecastCards > #day1 .temperature").text("Temperature: " + response.list[0].main.temp + String.fromCharCode(176) + "F");
-            $("#dailyForecastCards > #day1 .humidity").text("Humidity: " + response.list[0].main.humidity);
+            $("#dailyForecastCards > #day1 .humidity").text("Humidity: " + response.list[0].main.humidity + String.fromCharCode(37));
 
-            $("#dailyForecastCards > #day2 .date").text(response.list[8].dt_txt);
+            $("#dailyForecastCards > #day2 .date").text(response.list[8].dt_txt.substr(0, 10));
             $("#dailyForecastCards > #day2 .icon").attr("src", "http://openweathermap.org/img/wn/" + response.list[8].weather[0].icon + "@2x.png");
             $("#dailyForecastCards > #day2 .temperature").text("Temperature: " + response.list[8].main.temp + String.fromCharCode(176) + "F");
-            $("#dailyForecastCards > #day2 .humidity").text("Humidity: " + response.list[8].main.humidity);
+            $("#dailyForecastCards > #day2 .humidity").text("Humidity: " + response.list[8].main.humidity + String.fromCharCode(37));
 
-            $("#dailyForecastCards > #day3 .date").text(response.list[16].dt_txt);
+            $("#dailyForecastCards > #day3 .date").text(response.list[16].dt_txt.substr(0, 10));
             $("#dailyForecastCards > #day3 .icon").attr("src", "http://openweathermap.org/img/wn/" + response.list[16].weather[0].icon + "@2x.png");
             $("#dailyForecastCards > #day3 .temperature").text("Temperature: " + response.list[16].main.temp + String.fromCharCode(176) + "F");
-            $("#dailyForecastCards > #day3 .humidity").text("Humidity: " + response.list[16].main.humidity);
+            $("#dailyForecastCards > #day3 .humidity").text("Humidity: " + response.list[16].main.humidity + String.fromCharCode(37));
 
-            $("#dailyForecastCards > #day4 .date").text(response.list[24].dt_txt);
+            $("#dailyForecastCards > #day4 .date").text(response.list[24].dt_txt.substr(0, 10));
             $("#dailyForecastCards > #day4 .icon").attr("src", "http://openweathermap.org/img/wn/" + response.list[24].weather[0].icon + "@2x.png");
             $("#dailyForecastCards > #day4 .temperature").text("Temperature: " + response.list[24].main.temp + String.fromCharCode(176) + "F");
-            $("#dailyForecastCards > #day4 .humidity").text("Humidity: " + response.list[24].main.humidity);
+            $("#dailyForecastCards > #day4 .humidity").text("Humidity: " + response.list[24].main.humidity + String.fromCharCode(37));
 
-            $("#dailyForecastCards > #day5 .date").text(response.list[32].dt_txt);
+            $("#dailyForecastCards > #day5 .date").text(response.list[32].dt_txt.substr(0, 10));
             $("#dailyForecastCards > #day5 .icon").attr("src", "http://openweathermap.org/img/wn/" + response.list[32].weather[0].icon + "@2x.png");
             $("#dailyForecastCards > #day5 .temperature").text("Temperature: " + response.list[32].main.temp + String.fromCharCode(176) + "F");
-            $("#dailyForecastCards > #day5 .humidity").text("Humidity: " + response.list[32].main.humidity);
+            $("#dailyForecastCards > #day5 .humidity").text("Humidity: " + response.list[32].main.humidity + String.fromCharCode(37));
         });
 };
 
@@ -172,7 +174,7 @@ $(".search-button").on("click", function (event) {
 
     event.preventDefault();
 
-    cityName = $("#cityInput").val().trim();
+    cityName = $("#cityInput").val().trim().toUpperCase();
 
     // Return from function early if submitted city field is blank
     if (cityName === "") {
@@ -204,6 +206,12 @@ function lastSearchedDisplay() {
     renderCurrentWeather();
     renderDailyWeather();
 }
+
+$("#backToTop").on("click", function () {
+    $('html, body').animate({
+        scrollTop: $($.attr(this, 'href')).offset().top
+    }, 500);
+});
 
 
 
