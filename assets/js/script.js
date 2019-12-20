@@ -260,7 +260,7 @@ function geoLocCitySearch() {
     })
         // We store all of the retrieved data inside of an object called "response"
         .then(function (response) {
-            console.log(response);
+            // console.log(response);
             // Display wait message.
             var waitMessage = $("<p>Locating...</p>");
             waitMessage.attr("style", "color: #003558");
