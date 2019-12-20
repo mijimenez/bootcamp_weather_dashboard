@@ -1,4 +1,4 @@
-# Bootcamp Weather Dashboard
+# Weather Dashboard
 
 ## Screenshot of Application
 
@@ -23,7 +23,7 @@
         - Icon image (visual representation of weather conditions)
         - Temperature
         - Humidity
-    -  Wind speed
+        -  Wind speed
         - UV index
     - 5-day forecast with the following data:
         - Date

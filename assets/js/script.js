@@ -3,6 +3,9 @@ var cityName = "";
 var searchedCities = [];
 var lat = "";
 var lon = "";
+var geoLat = "";
+var geoLon = "";
+
 
 $(document).ready(function () {
     function init() {
@@ -24,6 +27,9 @@ $(document).ready(function () {
     }
     // Display searched cities from local storage
     init();
+
+    // Ask for user's location
+    geoFindMe();
 });
 
 
@@ -49,7 +55,6 @@ function renderCities() {
         $("#clearHistory").attr("style", "display:block");
     }
 };
-
 
 
 function renderCurrentWeather() {
@@ -100,7 +105,6 @@ function renderCurrentWeather() {
 };
 
 
-
 function renderUVindex() {
     // Here we are building the URL we need to query the database for current weather.
     var queryURLuvIndex = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + APIKey;
@@ -120,7 +124,6 @@ function renderUVindex() {
             $("#currentWeather > .uv-index").text("UV Index: " + UVindex);
         });
 };
-
 
 
 function renderDailyWeather() {
@@ -213,6 +216,63 @@ $("#backToTop").on("click", function () {
     }, 500);
 });
 
+
+function geoFindMe() {
+    var queryURLlocation = "";
+  
+    function success(position) {
+      var latitude  = position.coords.latitude;
+      var longitude = position.coords.longitude;
+  
+      queryURLlocation = "https://www.openstreetmap.org/#map=18/" + latitude + "/" + longitude;
+        geoLat = latitude;
+        geoLon = longitude;
+        geoLocCitySearch();
+    }
+  
+    function error() {
+    //   console.log('Unable to retrieve your location');
+        return;
+    }
+  
+    if (!navigator.geolocation) {
+        alert('Geolocation is not supported by your browser');
+    } else {
+        // console.log('Locating…');
+        navigator.geolocation.getCurrentPosition(success, error);
+    }
+  
+}
+
+function geoLocCitySearch() {
+    // Here we are building the URL we need to query the database for current weather.
+    var queryURLgeoWeather = "https://api.openweathermap.org/data/2.5/weather?lat=" + geoLat + "&lon=" + geoLon + "&appid=" + APIKey;
+
+    // Here we run our AJAX call to the OpenWeatherMap API for current forcast.
+    $.ajax({
+        url: queryURLgeoWeather,
+        method: "GET",
+        error: function () {
+            var error = $("<p>*Please enter a valid city name.</p>").addClass("error");
+            $(".input-group").append(error);
+            error.attr("style", "width:100%; color:#ff6c45; margin:.5em 0 0 0; text-align:left; font-size: .8em;");
+        }
+    })
+        // We store all of the retrieved data inside of an object called "response"
+        .then(function (response) {
+            console.log(response);
+            // Display wait message.
+            var waitMessage = $("<p>Locating...</p>");
+            waitMessage.attr("style", "color: #003558");
+            $("#currentWeather").append(waitMessage);
+            // Display results for current location
+            cityName = response.name;
+            renderCurrentWeather();
+            renderUVindex();
+            renderDailyWeather();
+            waitMessage.attr("style", "display: none");
+        });    
+}
 
 
 
