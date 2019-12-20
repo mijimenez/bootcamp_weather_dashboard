@@ -16,7 +16,7 @@
 - Server-side API and 3rd Party API and Library integration
 
 ## Features
-- Search a city by name to view the following:
+- Allow access to current location or search a city by name to view the following:
     - current weather with the following data:
         - City
         - Date
@@ -38,10 +38,15 @@
 - I want a way to check the weather
 - so that I can determine the weather for any given city within the next 5 days
 
-## Acceptance Criteria
+## Acceptance Criteria 1
 - Given that I provide a valid city name
 - When I hit "search"
 - then the current weather and the 5-day forecast are generated with a search history of past city searches
+
+## Acceptance Criteria 2
+- Given that I reside in a recognizable city
+- When I hit launch the application
+- then the current weather and the 5-day forecast for my current city are generated with a search history
 
 - - -
 © 2019 [Madeline Jimenez](https://github.com/mijimenez)
