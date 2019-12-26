@@ -266,7 +266,7 @@ function geoLocCitySearch() {
             waitMessage.attr("style", "color: #003558");
             $("#currentWeather").append(waitMessage);
             // Display results for current location
-            cityName = response.name;
+            cityName = response.name.toUpperCase();
             renderCurrentWeather();
             renderUVindex();
             renderDailyWeather();
